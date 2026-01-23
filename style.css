@@ -8,6 +8,12 @@ body {
   margin: 0;
 }
 
+iframe {
+  width: 100%;   /* fill the container */
+  height: 80vh;  /* tall enough to see most of the calendar */
+  border: 0;
+}
+
 .container {
   background: white;
   padding: clamp(2rem, 5vw, 4rem);
