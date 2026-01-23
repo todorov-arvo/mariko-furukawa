@@ -8,12 +8,6 @@ body {
   margin: 0;
 }
 
-iframe {
-  width: 100%;   /* fill the container */
-  height: 80vh;  /* tall enough to see most of the calendar */
-  border: 0;
-}
-
 button {
   padding: 10px 20px;
   font-size: 1rem;
