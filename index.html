@@ -1,17 +1,251 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Mariko Furukawa - Google Calendar</title>
-  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecobike Helsinki - Bike Rental, Sales & Service</title>
+  <meta name="description" content="Rent bikes in Helsinki. Ecobike offers city bikes, trekking bikes, repairs, and used bike sales. Contact us for availability and pickup times.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Spectral:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6fbf7;
+      --card: #ffffff;
+      --text: #14231a;
+      --muted: #4f6257;
+      --line: #dbe7df;
+      --brand: #1f7a4d;
+      --brand-dark: #165c39;
+      --accent: #d9f36b;
+      --shadow: 0 10px 30px rgba(20, 35, 26, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Manrope, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 500px at 90% -20%, #ddf5e5 0%, transparent 60%),
+        radial-gradient(1000px 500px at -10% -30%, #eaf8ef 0%, transparent 50%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .lang a {
+      color: var(--brand-dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 3.2rem 0 1.8rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 0.5rem 0;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-line {
+      font-family: Spectral, serif;
+      color: var(--brand-dark);
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.04rem;
+      margin: 0 0 1rem 0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--brand);
+      transition: transform 120ms ease, background 120ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--brand);
+      color: white;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--brand-dark);
+    }
+
+    .hours {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.98rem;
+    }
+
+    .hours .status {
+      display: inline-block;
+      width: fit-content;
+      font-weight: 800;
+      color: #163520;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .grid-3 {
+      margin: 1.2rem 0 1.6rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    ul { margin: 0.45rem 0 0; padding-left: 1.1rem; }
+    li { margin: 0.25rem 0; }
+
+    .checklist li { margin-bottom: 0.36rem; }
+    .muted { color: var(--muted); }
+
+    .footer {
+      margin: 1.6rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 2rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Google Calendar Appointment Scheduling begin -->
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1v6pRR0wAhqgVlY3C_tSuIevIGn_sNtpZ_OolZ-WrdT3w2VcexEloReaMcQKrq2dAtKqJlJwYx?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-<!-- end Google Calendar Appointment Scheduling -->
-  <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/todorovpiano/new-meeting" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
+  <div class="topbar">
+    <div class="wrap">
+      <div><strong>Ecobike Helsinki</strong> - Bike rental, sales, service</div>
+      <div class="lang"><a href="/index.html">Suomeksi</a></div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <article class="panel">
+          <p class="brand-line">Local bike shop in Helsinki</p>
+          <h1>Rent a bike in Helsinki with easy pickup and local support</h1>
+          <p class="lead">
+            We offer rental bikes for city riding and longer trips, plus repairs, spare parts,
+            and used bikes from 90 EUR.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:ecobike.helsinki@gmail.com?subject=Bike%20rental%20request">Email booking request</a>
+            <a class="btn btn-secondary" href="tel:+358400844358">Call +358 400 844 358</a>
+          </div>
+        </article>
+
+        <aside class="panel hours">
+          <div class="status">Open Mon & Tue 14:15-18:00</div>
+          <div><strong>Address:</strong> Savilankatu 1 b, 00250 Helsinki</div>
+          <div><strong>Phone:</strong> +358 400 844 358</div>
+          <div><strong>Email:</strong> ecobike.helsinki@gmail.com</div>
+          <div class="muted">
+            We are often open on other weekdays too - please call first.
+          </div>
+          <div>
+            <a href="map.en.html">Map and rental terms</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid-3">
+      <article class="panel">
+        <h2>Services</h2>
+        <ul>
+          <li>Rental bicycles</li>
+          <li>City and trekking use</li>
+          <li>Service, repairs and spare parts</li>
+          <li>New and used bicycles (from 90 EUR)</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2>How to book faster</h2>
+        <ul class="checklist">
+          <li>Dates and hours when you need bikes</li>
+          <li>Earliest and latest pickup time</li>
+          <li>Rider heights and number of bikes</li>
+          <li>City use or longer-distance ride</li>
+          <li>Brake preference: hand brake or pedal brake</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2>Good to know</h2>
+        <ul>
+          <li>Locks and helmets are available</li>
+          <li>You can bring your own U-lock for extra security</li>
+          <li>Please include dates and bike quantity in email subject</li>
+          <li>Example: "3 bikes 14.8-18.8"</li>
+        </ul>
+      </article>
+    </section>
+
+    <p class="footer">
+      Ecobike Helsinki - practical bike rental and service in central Helsinki.
+    </p>
+  </main>
 </body>
 </html>
